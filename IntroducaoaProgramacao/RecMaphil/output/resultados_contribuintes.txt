@@ -1,0 +1,61 @@
+Resultados dos Contribuintes:
+
+Contribuinte 1:
+Código: 34534
+Número de Dependentes: 67
+Renda Mensal: 650.00
+Imposto a ser pago: 295750.00
+
+Contribuinte 2:
+Código: 786
+Número de Dependentes: 54
+Renda Mensal: 76.00
+Imposto a ser pago: 34580.00
+
+Contribuinte 3:
+Código: 654
+Número de Dependentes: 3
+Renda Mensal: 4534.00
+Imposto a ser pago: 2164985.00
+
+Contribuinte 4:
+Código: 7
+Número de Dependentes: 564
+Renda Mensal: 3.00
+Imposto a ser pago: 1365.00
+
+Contribuinte 5:
+Código: 765
+Número de Dependentes: 56
+Renda Mensal: 343.00
+Imposto a ser pago: 156065.00
+
+Contribuinte 6:
+Código: 564
+Número de Dependentes: 756
+Renda Mensal: 3.00
+Imposto a ser pago: 1365.00
+
+Contribuinte 7:
+Código: 5675
+Número de Dependentes: 786
+Renda Mensal: 4.00
+Imposto a ser pago: 1820.00
+
+Contribuinte 8:
+Código: 4353
+Número de Dependentes: 32
+Renda Mensal: 4545.00
+Imposto a ser pago: 2067975.00
+
+Contribuinte 9:
+Código: 665
+Número de Dependentes: 34
+Renda Mensal: 56.00
+Imposto a ser pago: 25480.00
+
+Contribuinte 10:
+Código: 345
+Número de Dependentes: 656
+Renda Mensal: 345.00
+Imposto a ser pago: 156975.00

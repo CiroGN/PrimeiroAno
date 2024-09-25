@@ -1,0 +1,135 @@
+\documentclass{article}
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm,compat=1.8}
+\usepackage{pgfplotstable}
+\renewcommand*{\familydefault}{\sfdefault}
+\usepackage{sfmath}
+    \usepackage{pgfplots}
+\usetikzlibrary{positioning, backgrounds}
+\usepackage{rotating}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{adjustbox}
+\usepackage{subcaption}
+\usepackage{graphicx} % Required for inserting images
+\usetikzlibrary{patterns}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+\title{Projeto Fila}
+\author{CiroGuilhermeNass}
+\date{November 2023}
+
+\begin{document}
+
+\maketitle
+\begin{center}
+ATENÇÃO: os graficos avaliam as médias de 10 em 10 execuções por questões de hardware.
+
+\section{Desempenho por Template}
+\end{center}
+Usando o template de vector para a criação das filas, obtivemos o maior tempo de processamento das filas quando comparado aos outros métodos, após o 6° digito, é impresso o expoente "e+06" (que representa a casa dos milhões) ao criar as filas e "e+09" (que representa a casa dos bilhões) para retirar os elementos das filas (valores presentes em todos os processos sem exceção), como a diferença dos valores é altíssima, optei por não incluir no gráfico, \textbf{mas tome nota de que os valores da linha em vermelho são maiores quando comparados a linha azul}. todos os valores estão em microsegundos.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+     title={\textbf{Medias das filas}},
+     ylabel={Tempo de processamento (microsegundos)},
+     xlabel={Processamentos},
+     legend style={
+                        at={(0.5,-0.3)},
+                        anchor=north,
+                        legend columns=1,
+                        /tikz/every even column/.append style={column sep=0.5 cm}
+                    },
+     nodes near coords={
+                        \pgfmathprintnumber[precision=1]{\pgfplotspointmeta}
+                        }
+     ]
+	\addplot+[sharp plot] coordinates 
+		{(1,3.62255) (2,1.89632) (3,3.5689) (4,3.3593) (5,3.73745) (6,3.5821) (7,3.47305) (8,4.69475) (9,3.32595) (10,3.7429)};
+    \addplot+[sharp plot] coordinates 
+		{(1,1.89632) (2,1.87939) (3,1.80937) (4,1.71906) (5,1.8125) (6,1.79981) (7,1.80175) (8,2.04842) (9,1.78442) (10,1.81431)};
+    \legend{velocidade de criação da fila (milhões), velocidade na saida da fila (bilhões)}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\pagebreak
+\begin{center}
+\section{Medias por Queue}
+\end{center}
+Quando comparamos o método Queue aos outros, é evidente sua velocidade superior de processamento, milhão para representação dos valores de criação e milhar para a retirada dos elementos nas filas, levando mais tempo para montar as filas que retirar os elementos delas. Todos os valores estão em microsegundos.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+     title={\textbf{Processamentos das filas}},
+     ylabel={Tempo de processamento (microsegundos)},
+     xlabel={Processamentos},
+     legend style={
+                        at={(0.5,-0.3)},
+                        anchor=north,
+                        legend columns=1,
+                        /tikz/every even column/.append style={column sep=0.5 cm}
+                    }, 
+     nodes near coords={
+                        \pgfmathprintnumber[precision=1]{\pgfplotspointmeta}
+                        }
+     ]
+	\addplot+[sharp plot] coordinates 
+		{(1,1151380) (2,1361840) (3,3762230) (4,1211800) (5,1368650) (6,1391330) (7,1447060) (8,1350920) (9,1203760) (10,2607000)};
+    \addplot+[sharp plot] coordinates 
+		{(1,753710) (2,595270) (3,1180360) (4,621880) (5,655780) (6,785890) (7,872540) (8,675700) (9,835160) (10,954960)};
+    \legend{velocidade de criação da fila, velocidade na saida da fila}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\pagebreak
+\begin{center}
+\section{Medias por Filas Prioritarias}
+\end{center}
+É notado que no método por Filas de Prioridade, há uma semelhança com o tempo do método template de vector, adotando novamente expoentes após os seis primeiros digitos dos valores, como "e+06" para a criação de filas e, desta vez, diferentemente, "e+07" para retirada dos elementos das filas, e como novamente esta mudança de diferença torna os valores altos para representa-los em um grafico, aviso novamente que os valores da linha vermelha \textbf{são maiores} que os da linha azul. Todos os valores estão em microsegundos.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+     title={\textbf{Processamentos das filas}},
+     ylabel={Tempo de processamento (microsegundos)},
+     xlabel={Processamentos},
+     legend style={
+                        at={(0.5,-0.3)},
+                        anchor=north,
+                        legend columns=1,
+                        /tikz/every even column/.append style={column sep=0.5 cm}
+                    }, 
+     nodes near coords={
+                        \pgfmathprintnumber[precision=1]{\pgfplotspointmeta}
+                        }
+     ]
+	\addplot+[sharp plot] coordinates 
+		{(1,6.99912) (2,7.20374) (3,9.85838) (4,6.8597) (5,7.18513) (6,7.17091) (7,7.18254) (8,7.19831) (9,7.15775) (10,7.16944)};
+    \addplot+[sharp plot] coordinates 
+		{(1,2.12775) (2,2.25872) (3,2.82095) (4,2.08541) (5,2.14652) (6,2.14963) (7,2.15986) (8,2.21717) (9,2.16128) (10,2.1865)};
+    \legend{velocidade de criação da fila (milhar), velocidade na saida da fila (dez milhões)}
+\end{axis}
+\end{tikzpicture}
+\section{Propriedades do Sistema}
+\end{center}
+Arquitetura: x86 64
+Modo(s) operacional da CPU: 32-bit, 64-bit
+Address sizes: 36 bits physical, 48 bits virtual
+Ordem dos bytes: Little Endian
+CPU(s): 2
+Lista de CPU(s) on-line: 0,1
+ID de fornecedor: GenuineIntel
+Nome do modelo: Intel(R) Core(TM)2 Duo CPU     T5870  @2.00GHz
+Família da CPU: 6
+Modelo: 15
+Thread(s) per núcleo: 1
+Núcleo(s) por soquete: 2
+Soquete(s): 1
+Step: 13
+Frequency boost: enabled
+CPU(s) scaling MHz:40%
+CPU MHz máx.: 2001,0000
+CPU MHz mín.: 800,0000
+
+\end{document}
