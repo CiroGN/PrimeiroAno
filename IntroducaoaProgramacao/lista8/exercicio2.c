@@ -35,5 +35,4 @@ int main() {
 
     int resultado = calcularPotencia(base, expoente);
     printf("%d^%d = %d\n", base, expoente, resultado);
-
 }
